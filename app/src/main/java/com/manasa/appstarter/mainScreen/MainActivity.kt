@@ -18,6 +18,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.manasa.appstarter.ui.theme.AppStarterTheme
 import com.manasa.core.entities.State
 import dagger.hilt.android.AndroidEntryPoint
@@ -46,7 +47,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun ScreenContent(modifier: Modifier,viewModel: MainViewModel){
-    val screenState = viewModel.featureState.collectAsState()
+    val screenState = viewModel.featureState.collectAsStateWithLifecycle()
     when(screenState.value.status){
           State.STATUS.LOADING-> Loading()
           State.STATUS.CONTENT -> Content(modifier,name = screenState.value.data?.param1, message = screenState.value.data?.param2)
