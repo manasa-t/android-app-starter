@@ -52,5 +52,11 @@ class NetworkModule {
             .build()
     }
 
+//    @Singleton
+//    @Provides
+//    fun provideFeatureApiService(retrofit: Retrofit): FeatureApiService{
+//        return retrofit.create(FeatureApiService::class.java)
+//    }
+
 
 }
